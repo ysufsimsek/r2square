@@ -13,11 +13,18 @@ def download_file_from_github(url):
     return BytesIO(response.content)
 
 # GitHub'dan pkl dosyasını indir
-url = 'https://github.com/kullanici_adi/depo_adi/raw/main/dosya.pkl'  # GitHub dosya URL'si
+url = 'https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/stacking_model.pkl'  # GitHub dosya URL'si
 file_content = download_file_from_github(url)
 
 # pkl dosyasını yükle
 model = pickle.load(file_content)
+
+# GitHub'dan pkl dosyasını indir
+url = 'https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/scaler.pkl'  # GitHub dosya URL'si
+file_content = download_file_from_github(url)
+
+# pkl dosyasını yükle
+scaler = pickle.load(file_content)
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
