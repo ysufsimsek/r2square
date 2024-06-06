@@ -6,8 +6,8 @@ import joblib
 st.title("R2 Kare Dönem İçi Projesi")
 
 # Modeli ve scaler'ı yükleyelim
-model = load_model_from_url('')
-scaler = load_model_from_url('')
+model = load_model_from_url('https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/stacking_model.pkl')
+scaler = load_model_from_url('https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/scaler.pkl')
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
