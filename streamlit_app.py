@@ -4,10 +4,15 @@ import joblib
 
 # Başlık ekleyelim
 st.title("R2 Kare Dönem İçi Projesi")
+import pickle
+import numpy as np
 
-# Modeli ve scaler'ı yükleyelim
-model = load_model_from_url('https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/stacking_model.pkl')
-scaler = load_model_from_url('https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/scaler.pkl')
+# scaler.pkl ve stacking_model.pkl dosyalarını yükleme
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
+
+with open('stacking_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
