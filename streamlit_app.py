@@ -3,16 +3,21 @@ import pandas as pd
 import joblib
 import pickle
 import numpy as np
+import requests
+from io import BytesIO
 
-# Başlık ekleyelim
-st.title("R2 Kare Dönem İçi Projesi")
+# GitHub'dan dosyayı indir
+def download_file_from_github(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Hata varsa tetikler
+    return BytesIO(response.content)
 
-# scaler.pkl ve stacking_model.pkl dosyalarını yükleme
-with open('scaler.pkl', 'rb') as f:
-    scaler = pickle.load(f)
+# GitHub'dan pkl dosyasını indir
+url = 'https://github.com/kullanici_adi/depo_adi/raw/main/dosya.pkl'  # GitHub dosya URL'si
+file_content = download_file_from_github(url)
 
-with open('stacking_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+# pkl dosyasını yükle
+model = pickle.load(file_content)
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
