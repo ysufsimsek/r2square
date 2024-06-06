@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import pickle
+import numpy as np
 
 # Başlık ekleyelim
 st.title("R2 Kare Dönem İçi Projesi")
-import pickle
-import numpy as np
 
 # scaler.pkl ve stacking_model.pkl dosyalarını yükleme
 with open('scaler.pkl', 'rb') as f:
