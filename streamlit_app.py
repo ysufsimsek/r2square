@@ -6,7 +6,7 @@ import joblib
 st.title("R2 Kare Dönem İçi Projesi")
 
 # Modeli ve scaler'ı yükleyelim
-model = joblib.load('stacking_model.pkl')
+model = joblib.load('https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/stacking_model.pkll')
 scaler = joblib.load('https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/scaler.pkl')
 
 # Kullanıcıdan giriş verisi alalım
