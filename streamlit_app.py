@@ -2,12 +2,17 @@ import streamlit as st
 import pandas as pd
 import joblib
 import requests
+import os
 
 # GitHub'dan joblib dosyalarını indirmek için yardımcı fonksiyon
 def download_file(url, local_filename):
-    with requests.get(url) as r:
+    response = requests.get(url)
+    if response.status_code == 200:
         with open(local_filename, 'wb') as f:
-            f.write(r.content)
+            f.write(response.content)
+    else:
+        st.error(f"Failed to download file: {url}")
+        st.stop()
 
 # GitHub'daki dosyaların URL'leri
 model_url = 'https://github.com/username/repo/raw/main/.devcontainer/stacking_model.pkl'
@@ -19,11 +24,20 @@ scaler_file = 'scaler.pkl'
 download_file(model_url, model_file)
 download_file(scaler_url, scaler_file)
 
+# İndirilen dosyaların varlığını kontrol edin
+if not os.path.exists(model_file) or not os.path.exists(scaler_file):
+    st.error("Model veya scaler dosyası indirilemedi.")
+    st.stop()
+
 st.title("R2 Kare Dönem İçi Projesi")
 
 # Model ve scaler dosyalarını yükle
-model = joblib.load(model_file)
-scaler = joblib.load(scaler_file)
+try:
+    model = joblib.load(model_file)
+    scaler = joblib.load(scaler_file)
+except Exception as e:
+    st.error(f"Error loading model or scaler: {e}")
+    st.stop()
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
@@ -39,14 +53,21 @@ input_data = {
 input_df = pd.DataFrame([input_data])
 
 # Veriyi standartlaştıralım
-input_df_scaled = scaler.transform(input_df)
+try:
+    input_df_scaled = scaler.transform(input_df)
+except Exception as e:
+    st.error(f"Error scaling input data: {e}")
+    st.stop()
 
 # Tahmin yapalım
 if st.button('Tahmin Yap'):
-    prediction = model.predict(input_df_scaled)
-    if input_df['İsabetli Şut'][0] == 0:
-        prediction[0] = 0
-    st.write(f"Tahmin Sonucu: {prediction[0]}")
+    try:
+        prediction = model.predict(input_df_scaled)
+        if input_df['İsabetli Şut'][0] == 0:
+            prediction[0] = 0
+        st.write(f"Tahmin Sonucu: {prediction[0]}")
+    except Exception as e:
+        st.error(f"Error making prediction: {e}")
 
 # Sayfanın sonuna açıklama ekleyelim
 st.text("Bu uygulama Streamlit kullanılarak oluşturulmuştur.")
