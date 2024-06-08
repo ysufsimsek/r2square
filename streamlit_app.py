@@ -2,21 +2,16 @@ import streamlit as st
 import pandas as pd
 import joblib
 import requests
-import os
 
 # GitHub'dan joblib dosyalarını indirmek için yardımcı fonksiyon
 def download_file(url, local_filename):
-    response = requests.get(url)
-    if response.status_code == 200:
+    with requests.get(url) as r:
         with open(local_filename, 'wb') as f:
-            f.write(response.content)
-    else:
-        st.error(f"Failed to download file: {url}")
-        st.stop()
+            f.write(r.content)
 
 # GitHub'daki dosyaların URL'leri
-model_url = 'https://github.com/username/repo/raw/main/.devcontainer/stacking_model.pkl'
-scaler_url = 'https://github.com/username/repo/raw/main/.devcontainer/scaler.pkl'
+model_url = 'https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/stacking_model.pkl'
+scaler_url = 'https://github.com/ysufsimsek/r2square/raw/main/.devcontainer/scaler.pkl'
 
 # Dosyaları yerel olarak indir
 model_file = 'stacking_model.pkl'
@@ -24,20 +19,11 @@ scaler_file = 'scaler.pkl'
 download_file(model_url, model_file)
 download_file(scaler_url, scaler_file)
 
-# İndirilen dosyaların varlığını kontrol edin
-if not os.path.exists(model_file) or not os.path.exists(scaler_file):
-    st.error("Model veya scaler dosyası indirilemedi.")
-    st.stop()
-
 st.title("R2 Kare Dönem İçi Projesi")
 
 # Model ve scaler dosyalarını yükle
-try:
-    model = joblib.load(model_file)
-    scaler = joblib.load(scaler_file)
-except Exception as e:
-    st.error(f"Error loading model or scaler: {e}")
-    st.stop()
+model = joblib.load(model_file)
+scaler = joblib.load(scaler_file)
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
@@ -53,21 +39,14 @@ input_data = {
 input_df = pd.DataFrame([input_data])
 
 # Veriyi standartlaştıralım
-try:
-    input_df_scaled = scaler.transform(input_df)
-except Exception as e:
-    st.error(f"Error scaling input data: {e}")
-    st.stop()
+input_df_scaled = scaler.transform(input_df)
 
 # Tahmin yapalım
 if st.button('Tahmin Yap'):
-    try:
-        prediction = model.predict(input_df_scaled)
-        if input_df['İsabetli Şut'][0] == 0:
-            prediction[0] = 0
-        st.write(f"Tahmin Sonucu: {prediction[0]}")
-    except Exception as e:
-        st.error(f"Error making prediction: {e}")
+    prediction = model.predict(input_df_scaled)
+    if input_df['İsabetli Şut'][0] == 0:
+        prediction[0] = 0
+    st.write(f"Tahmin Sonucu: {prediction[0]}")
 
 # Sayfanın sonuna açıklama ekleyelim
 st.text("Bu uygulama Streamlit kullanılarak oluşturulmuştur.")
