@@ -1,13 +1,29 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import requests
 
+# GitHub'dan joblib dosyalarını indirmek için yardımcı fonksiyon
+def download_file(url, local_filename):
+    with requests.get(url) as r:
+        with open(local_filename, 'wb') as f:
+            f.write(r.content)
+
+# GitHub'daki dosyaların URL'leri
+model_url = 'https://github.com/username/repo/raw/main/.devcontainer/stacking_model.pkl'
+scaler_url = 'https://github.com/username/repo/raw/main/.devcontainer/scaler.pkl'
+
+# Dosyaları yerel olarak indir
+model_file = 'stacking_model.pkl'
+scaler_file = 'scaler.pkl'
+download_file(model_url, model_file)
+download_file(scaler_url, scaler_file)
 
 st.title("R2 Kare Dönem İçi Projesi")
 
-
-model = joblib.load('.devcontainer/stacking_model.pkl')
-scaler = joblib.load('.devcontainer/scaler.pkl')
+# Model ve scaler dosyalarını yükle
+model = joblib.load(model_file)
+scaler = joblib.load(scaler_file)
 
 # Kullanıcıdan giriş verisi alalım
 st.header("İstenilen İstatistikleri Giriniz")
