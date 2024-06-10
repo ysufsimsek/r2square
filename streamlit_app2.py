@@ -4,7 +4,7 @@ import joblib
 import webbrowser
 
 st.sidebar.title("Sayfa Seçimi")
-page = st.sidebar.selectbox("", ["Hakkımızda", "Proje"])
+page = st.sidebar.selectbox("", ["asd", "Proje"])
 
 if page == "Proje Ekip Üyeleri":
     st.title("HAKKIMIZDA")
