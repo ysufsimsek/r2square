@@ -31,7 +31,7 @@ if page == "Proje Ekip Üyeleri":
         if st.button('LinkedIn - Efe Batın SEÇKİN'):
             webbrowser.open_new_tab("https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/")
         if st.button('GitHub - Efe Batın SEÇKİN'):
-            webbrowser.open_new_tab("https://github.com/efebatinseckin")
+            webbrowser.open_new_tab("https://github.com/EfeSeckinn")
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
