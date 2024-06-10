@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import webbrowser
 
 st.sidebar.title("Sayfa Seçimi")
 page = st.sidebar.selectbox("", ["Proje Ekip Üyeleri", "Proje"])
@@ -16,22 +15,16 @@ if page == "Proje Ekip Üyeleri":
     st.write("Aşağıda ekip üyelerimizin GitHub ve LinkedIn hesapları bulunmaktadır")
     with st.expander("Ekip Üyeleri GitHub ve LinkedIn Bilgileri"):
         st.write("**Ekip Lideri**: Yusuf ŞİMŞEK")
-        if st.button('LinkedIn - Yusuf ŞİMŞEK'):
-            webbrowser.open_new_tab("https://www.linkedin.com/in/yusuf-%C5%9Fim%C5%9Fek-ab1486295/")
-        if st.button('GitHub - Yusuf ŞİMŞEK'):
-            webbrowser.open_new_tab("https://github.com/ysufsimsek")
+        st.markdown('[LinkedIn - Yusuf ŞİMŞEK](https://www.linkedin.com/in/yusuf-%C5%9Fim%C5%9Fek-ab1486295/)')
+        st.markdown('[GitHub - Yusuf ŞİMŞEK](https://github.com/ysufsimsek)')
 
         st.write("**Ekip Üyesi**: Mehmet AYDEMİR")
-        if st.button('LinkedIn - Mehmet AYDEMİR'):
-            webbrowser.open_new_tab("https://www.linkedin.com/in/mehmet-aydemir-7514262a5/")
-        if st.button('GitHub - Mehmet AYDEMİR'):
-            webbrowser.open_new_tab("https://github.com/mehmetaydemir")
+        st.markdown('[LinkedIn - Mehmet AYDEMİR](https://www.linkedin.com/in/mehmet-aydemir-7514262a5/)')
+        st.markdown('[GitHub - Mehmet AYDEMİR](https://github.com/mehmetaydemir)')
 
         st.write("**Ekip Üyesi**: Efe Batın SEÇKİN")
-        if st.button('LinkedIn - Efe Batın SEÇKİN'):
-            webbrowser.open_new_tab("https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/")
-        if st.button('GitHub - Efe Batın SEÇKİN'):
-            webbrowser.open_new_tab("https://github.com/EfeSeckinn")
+        st.markdown('[LinkedIn - Efe Batın SEÇKİN](https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/)')
+        st.markdown('[GitHub - Efe Batın SEÇKİN](https://github.com/EfeSeckinn)')
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
@@ -61,11 +54,11 @@ elif page == "Proje":
         st.error(f"Veri ölçeklendirilirken bir hata oluştu: {e}")
         st.stop()
 
-    if st.button('Atalıcak Golü tahmin edin'):
+    if st.button('Atılacak Golü tahmin edin'):
         try:
             prediction = model.predict(input_df_scaled)
             if input_df['İsabetli Şut'][0] == 0:
                 prediction[0] = 0
-            st.write(f"Tahmini Barcelonanın Atacağı Gol: {prediction[0]}")
+            st.write(f"Tahmini Barcelona'nın Atacağı Gol: {prediction[0]}")
         except Exception as e:
             st.error(f"Tahmin yapılırken bir hata oluştu: {e}")
