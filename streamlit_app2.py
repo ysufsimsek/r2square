@@ -3,10 +3,10 @@ import pandas as pd
 import joblib
 
 st.sidebar.title("Sayfa Seçimi")
-page = st.sidebar.selectbox("", ["Proje Ekip Üyeleri", "Proje"])
+page = st.sidebar.selectbox("", ["Hakkımızda", "Proje"])
 
-if page == "Proje Ekip Üyeleri":
-    st.title("Proje Ekip Üyeleri")
+if page == "Hakkımızda":
+    st.title("HAKKIMIZDA")
     st.write("R2 Kare Projesinin ekip üyeleri:")
     st.write("**Yusuf ŞİMŞEK**: Fırat Üniversitesi Yapay Zeka ve Veri Mühendisliği 1.sınıf öğrencisi")
     st.write("**Mehmet AYDEMİR**: Fırat Üniversitesi Yapay Zeka ve Veri Mühendisliği 1.sınıf öğrencisi")
