@@ -4,7 +4,7 @@ import joblib
 import webbrowser
 
 st.sidebar.title("Sayfa Seçimi")
-page = st.sidebar.selectbox("", ["asd", "Proje"])
+page = st.sidebar.selectbox("", ["Hakkımızda", "Proje"])
 
 if page == "Proje Ekip Üyeleri":
     st.title("HAKKIMIZDA")
@@ -37,9 +37,6 @@ if page == "Proje Ekip Üyeleri":
     st.header("Proje Hakkında Bilgiler")
     st.write("Veri bilimi için programlaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir.Kullanırken iyi eğleceler dileriz. ")
 
-    st.header("Gelecek Güncellemeler")
-    st.write("-Daha fazla veriyle eğitilmiş makine öğrenmesi")
-    st.write("-Daha fazla seçilebilecek takım")
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
