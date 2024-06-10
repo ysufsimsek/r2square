@@ -7,7 +7,7 @@ page = st.sidebar.selectbox("", ["Hakkımızda", "Proje"])
 
 if page == "Hakkımızda":
     st.title("HAKKIMIZDA")
-    st.header("R2 Kare Projesinin ekip üyeleri:")
+    st.header("R2 Kare Projesinin ekip üyeleri")
     st.write("**Yusuf ŞİMŞEK**: Fırat Üniversitesi Yapay Zeka ve Veri Mühendisliği 1.sınıf öğrencisi")
     st.write("**Mehmet AYDEMİR**: Fırat Üniversitesi Yapay Zeka ve Veri Mühendisliği 1.sınıf öğrencisi")
     st.write("**Efe Batın SEÇKİN**: Fırat Üniversitesi Yapay Zeka ve Veri Mühendisliği 1.sınıf öğrencisi")
