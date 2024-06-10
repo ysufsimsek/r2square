@@ -15,16 +15,16 @@ if page == "Proje Ekip Üyeleri":
     st.write("Aşağıda ekip üyelerimizin GitHub ve LinkedIn hesapları bulunmaktadır")
     with st.expander("Ekip Üyeleri GitHub ve LinkedIn Bilgileri"):
         st.write("**Ekip Lideri**: Yusuf ŞİMŞEK")
-        st.markdown('[LinkedIn - Yusuf ŞİMŞEK](https://www.linkedin.com/in/yusuf-%C5%9Fim%C5%9Fek-ab1486295/)')
-        st.markdown('[GitHub - Yusuf ŞİMŞEK](https://github.com/ysufsimsek)')
+        st.markdown('<a href="https://www.linkedin.com/in/yusuf-%C5%9Fim%C5%9Fek-ab1486295/" target="_blank"><button>LinkedIn - Yusuf ŞİMŞEK</button></a>', unsafe_allow_html=True)
+        st.markdown('<a href="https://github.com/ysufsimsek" target="_blank"><button>GitHub - Yusuf ŞİMŞEK</button></a>', unsafe_allow_html=True)
 
         st.write("**Ekip Üyesi**: Mehmet AYDEMİR")
-        st.markdown('[LinkedIn - Mehmet AYDEMİR](https://www.linkedin.com/in/mehmet-aydemir-7514262a5/)')
-        st.markdown('[GitHub - Mehmet AYDEMİR](https://github.com/mehmetaydemir)')
+        st.markdown('<a href="https://www.linkedin.com/in/mehmet-aydemir-7514262a5/" target="_blank"><button>LinkedIn - Mehmet AYDEMİR</button></a>', unsafe_allow_html=True)
+        st.markdown('<a href="https://github.com/mehmetaydemir" target="_blank"><button>GitHub - Mehmet AYDEMİR</button></a>', unsafe_allow_html=True)
 
         st.write("**Ekip Üyesi**: Efe Batın SEÇKİN")
-        st.markdown('[LinkedIn - Efe Batın SEÇKİN](https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/)')
-        st.markdown('[GitHub - Efe Batın SEÇKİN](https://github.com/EfeSeckinn)')
+        st.markdown('<a href="https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/" target="_blank"><button>LinkedIn - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
+        st.markdown('<a href="https://github.com/EfeSeckinn" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
