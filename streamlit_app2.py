@@ -31,8 +31,8 @@ elif page == "Proje":
 
     # Model ve scaler dosyalarının yüklendiğinden emin olun
     try:
-        model = joblib.load('stacking_model.pkl')
-        scaler = joblib.load('scaler.pkl')
+        model = joblib.load('stacking_model.joblib')
+        scaler = joblib.load('scaler.joblib')
     except Exception as e:
         st.error(f"Model veya scaler yüklenirken bir hata oluştu: {e}")
         st.stop()
