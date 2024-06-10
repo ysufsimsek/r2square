@@ -25,6 +25,7 @@ if page == "Proje Ekip Üyeleri":
         st.write("**Ekip Üyesi**: Efe Batın SEÇKİN")
         st.markdown('<a href="https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/" target="_blank"><button>LinkedIn - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
         st.markdown('<a href="https://github.com/EfeSeckinn" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
+    st.write("asd")
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
