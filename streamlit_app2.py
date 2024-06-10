@@ -34,16 +34,6 @@ if page == "Proje Ekip Üyeleri":
         if st.button('GitHub - Efe Batın SEÇKİN'):
             webbrowser.open_new_tab("https://github.com/efebatinseckin")
 
-    st.header("Proje Hakkında Bilgiler")
-    st.write("Veri bilimi için programlaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir.Kullanırken iyi eğleceler dileriz. ")
-
-    st.header("Gelecek Güncellemeler")
-
-    st.write("**-Daha fazla veriyle eğitilmiş makine öğrenmesi.**")
-    st.write("**-Daha fazla takım seçeneği**")
-
-    st.header("Güncellemeler Kayıdı")
-    st.write("Günceleme kayıdı bulunmamaktadır.")
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
