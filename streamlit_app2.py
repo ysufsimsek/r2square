@@ -25,7 +25,11 @@ if page == "Proje Ekip Üyeleri":
         st.write("**Ekip Üyesi**: Efe Batın SEÇKİN")
         st.markdown('<a href="https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/" target="_blank"><button>LinkedIn - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
         st.markdown('<a href="https://github.com/EfeSeckinn" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
-    st.write("asd")
+    st.header("Proje Hakkında Bilgiler")
+    st.write("Veri bilimi için programlaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir.Kullanırken iyi eğleceler dileriz. ")
+
+    st.header("Gelecek Güncellemeler")
+    st.write("Daha fazla takımın gol tahminin")
 
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
