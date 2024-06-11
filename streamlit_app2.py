@@ -20,7 +20,7 @@ if page == "Hakkımızda":
 
         st.write("**Ekip Üyesi**: Mehmet AYDEMİR")
         st.markdown('<a href="https://www.linkedin.com/in/mehmet-aydemir-7514262a5/" target="_blank"><button>LinkedIn - Mehmet AYDEMİR</button></a>', unsafe_allow_html=True)
-        st.markdown('<a href="https://github.com/mehmetaydemir" target="_blank"><button>GitHub - Mehmet AYDEMİR</button></a>', unsafe_allow_html=True)
+        st.markdown('<a href="https://github.com/mehmetaydemr-8" target="_blank"><button>GitHub - Mehmet AYDEMİR</button></a>', unsafe_allow_html=True)
 
         st.write("**Ekip Üyesi**: Efe Batın SEÇKİN")
         st.markdown('<a href="https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/" target="_blank"><button>LinkedIn - Efe Batın SEÇKİN</button></a>', unsafe_allow_html=True)
