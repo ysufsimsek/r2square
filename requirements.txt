@@ -4,4 +4,5 @@ streamlit
 joblib
 scikit_learn
 xgboost
+matplotlip
 
