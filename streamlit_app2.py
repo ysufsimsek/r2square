@@ -7,6 +7,39 @@ import matplotlib.pyplot as plt
 # Sayfa ayarları
 st.set_page_config(page_title="R2 Kare Projesi")
 
+# CSS stili ile sayfa arka planını ve sidebar stilini ayarlama
+st.markdown(
+    """
+    <style>
+    .main {
+        background-color: #f0f2f6;
+        padding: 20px;
+    }
+    .sidebar .sidebar-content {
+        background: linear-gradient(#1e3c72, #2a5298);
+        color: white;
+    }
+    .sidebar .sidebar-content h2 {
+        color: white;
+    }
+    .stButton>button {
+        color: white;
+        background-color: #1e3c72;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .stButton>button:hover {
+        background-color: #2a5298;
+    }
+    .st-expander {
+        background-color: #f0f2f6;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
 yillar = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
 
 def temizle_ve_isle(df_istatistik, df_maclar):
@@ -82,41 +115,7 @@ print(ortalamalar)
 st.sidebar.title("Sayfa Seçimi")
 page = st.sidebar.selectbox("", ["Ana Sayfa","Hakkımızda", "Proje", "Grafik"])
 
-
 if page == "Ana Sayfa":
-    # CSS stili ile sayfa arka planını ve sidebar stilini ayarlama
-    st.markdown(
-        """
-        <style>
-        .main {
-            background-color: #f0f2f6;
-            padding: 20px;
-        }
-        .sidebar .sidebar-content {
-            background: linear-gradient(#1e3c72, #2a5298);
-            color: white;
-        }
-        .sidebar .sidebar-content h2 {
-            color: white;
-        }
-        .stButton>button {
-            color: white;
-            background-color: #1e3c72;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .stButton>button:hover {
-            background-color: #2a5298;
-        }
-        .st-expander {
-            background-color: #f0f2f6;
-        }
-        </style>
-        """, unsafe_allow_html=True
-    )
-
     st.title("Hoş Geldiniz!")
     st.write("""
         Bu proje kapsamında, belirlenen bir takımın maç sonuçlarına dair istatistikler ve analizler yapabilirsiniz. Ayrıca,
@@ -149,7 +148,6 @@ if page == "Ana Sayfa":
         """, unsafe_allow_html=True
     )
 
-    # Proje hakkında bilgi ve gelecek güncellemeler
     st.header("Proje Hakkında Bilgiler")
     st.write(
         "Veri bilimi için programlamaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirlenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir. Kullanırken iyi eğlenceler dileriz.")
@@ -158,7 +156,6 @@ if page == "Ana Sayfa":
     st.write("- Proje sayfasına lig seçme butonu")
     st.write("- Proje sayfasına seçilen ligden takım seçme butonu")
     st.write("- Daha fazla veri kullanan makine öğrenmesi")
-
 
 elif page == "Hakkımızda":
     st.title("HAKKIMIZDA")
@@ -313,4 +310,3 @@ elif page == "Grafik":
         plt.ylabel("Maç Başına Atılan Gol")
         plt.title("Yıllara Göre Maç Başına Atılan Gol Grafiği")
         st.pyplot(plt)
-
