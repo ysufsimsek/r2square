@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import numpy as np
 import matplotlib.pyplot as plt
+import openpyxl
 
 yillar = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
 
