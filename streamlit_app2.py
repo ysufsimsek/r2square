@@ -3,10 +3,8 @@ import pandas as pd
 import joblib
 import numpy as np
 import matplotlib.pyplot as plt
-import openpyxl
 
 yillar = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
-
 
 def temizle_ve_isle(df_istatistik, df_maclar):
     df_istatistik.drop(["Köşe Vuruşu", "Ofsaytlar", "Direkten Dönen", "Fauller"], axis=1, inplace=True)
@@ -27,12 +25,10 @@ def temizle_ve_isle(df_istatistik, df_maclar):
 
     return df_istatistik, df_maclar
 
-
 def ortalamalari_hesapla(df_istatistik):
     stats = np.array(df_istatistik.mean())
     stats_name = np.array(df_istatistik.columns)
     return pd.DataFrame(stats, index=stats_name)
-
 
 def hesapla_sezon_sonuclar(df_maclar):
     sezon_sonuclar = df_maclar["sonuc"].value_counts()
@@ -42,12 +38,19 @@ def hesapla_sezon_sonuclar(df_maclar):
     mbp = ((win * 3) + draw) / (win + draw + lose)
     return win, draw, lose, mbp
 
+def hesapla_mac_basina_atilan_gol(df_maclar):
+    atilan_gol = df_maclar['Ev Gol'] + df_maclar['Deplasman Gol']
+    toplam_gol = atilan_gol.sum()
+    mac_sayisi = len(atilan_gol)
+    mac_basina_gol = toplam_gol / mac_sayisi
+    return mac_basina_gol
 
 # Yıllık verilerin okunması ve işlenmesi
 yillar_str = ["14", "15", "16", "17", "18", "19", "20", "21", "22"]
 avareage_stats = {}
 sezon_sonuclar = {}
 mbp_values = []
+mac_basina_atilan_gol_values = []
 
 for yil in yillar_str:
     df_istatistik = pd.read_excel(f"istatistikler_{yil}.xlsx")
@@ -56,9 +59,9 @@ for yil in yillar_str:
     avareage_stats[yil] = ortalamalari_hesapla(df_istatistik)
     sezon_sonuclar[yil] = hesapla_sezon_sonuclar(df_maclar)
     mbp_values.append(sezon_sonuclar[yil][3])
+    mac_basina_atilan_gol_values.append(hesapla_mac_basina_atilan_gol(df_maclar))
     print(avareage_stats[yil])
-    print(
-        f"Sezon {yil} - Kazanma: {sezon_sonuclar[yil][0]}, Beraberlik: {sezon_sonuclar[yil][1]}, Mağlubiyet: {sezon_sonuclar[yil][2]}, Maç Başı Puan: {sezon_sonuclar[yil][3]}")
+    print(f"Sezon {yil} - Kazanma: {sezon_sonuclar[yil][0]}, Beraberlik: {sezon_sonuclar[yil][1]}, Mağlubiyet: {sezon_sonuclar[yil][2]}, Maç Başı Puan: {sezon_sonuclar[yil][3]}")
 
 ortalamalar = {}
 
@@ -73,9 +76,8 @@ for yil in yillar_str:
 
 print(ortalamalar)
 
-
 st.sidebar.title("Sayfa Seçimi")
-page = st.sidebar.selectbox("", ["Hakkımızda", "Proje","Grafik"])
+page = st.sidebar.selectbox("", ["Hakkımızda", "Proje", "Grafik"])
 
 if page == "Hakkımızda":
     st.title("HAKKIMIZDA")
@@ -99,7 +101,7 @@ if page == "Hakkımızda":
             '<a href="https://www.linkedin.com/in/mehmet-aydemir-7514262a5/" target="_blank"><button>LinkedIn - Mehmet AYDEMİR</button></a>',
             unsafe_allow_html=True)
         st.markdown(
-            '<a href="https://github.com/mehmetaydemr-8" target="_blank"><button>GitHub - Mehmet AYDEMİR</button></a>',
+            '<a href="https://github.com/mehmetaydemir" target="_blank"><button>GitHub - Mehmet AYDEMİR</button></a>',
             unsafe_allow_html=True)
 
         st.write("**Ekip Üyesi**: Efe Batın SEÇKİN")
@@ -107,11 +109,10 @@ if page == "Hakkımızda":
             '<a href="https://www.linkedin.com/in/efe-bat%C4%B1n-se%C3%A7kin-b78692295/" target="_blank"><button>LinkedIn - Efe Batın SEÇKİN</button></a>',
             unsafe_allow_html=True)
         st.markdown(
-            '<a href="https://github.com/EfeSeckinn" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>',
+            '<a href="https://github.com/efebatinseckin" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>',
             unsafe_allow_html=True)
     st.header("Proje Hakkında Bilgiler")
-    st.write(
-        "Veri bilimi için programlaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir.Kullanırken iyi eğleceler dileriz. ")
+    st.write("Veri bilimi için programlaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir.Kullanırken iyi eğleceler dileriz. ")
 
     st.header("Gelecek Güncellemeler")
     st.write("-Proje sayfasına lig seçme butonu")
@@ -223,3 +224,11 @@ elif page == "Grafik":
         plt.ylabel("Maç Başı Puan")
         plt.title("Yıllara Göre Maç Başı Puan Grafiği")
         st.pyplot(plt)
+
+    elif yil_menusu == "Yıllara Göre Maç Başına Atılan Gol Grafiği":
+        plt.plot(yillar, mac_basina_atilan_gol_values, "b-*")
+        plt.xlabel("Yıllar")
+        plt.ylabel("Maç Başına Atılan Gol")
+        plt.title("Yıllara Göre Maç Başına Atılan Gol Grafiği")
+        st.pyplot(plt)
+
