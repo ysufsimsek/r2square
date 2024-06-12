@@ -189,17 +189,7 @@ elif page == "Hakkımızda":
         st.markdown(
             '<a href="https://github.com/efebatinseckin" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>',
             unsafe_allow_html=True)
-    st.header("Proje Hakkında Bilgiler")
-    st.write("Veri bilimi için programlaya giriş adlı dersimizin dönem içi proje ödevidir. 14/03/2024 tarihinde projeye başlanılmıştır. Proje belirenen bir takımın atabileceği gol sayısını tahmin etme temeli olan makine öğrenmesi projesidir.Kullanırken iyi eğleceler dileriz. ")
-
-    st.header("Gelecek Güncellemeler")
-    st.write("-Proje sayfasına lig seçme butonu")
-    st.write("-Proje sayfasına seçilen ligden takım seçme butonu")
-    st.write("-Daha fazla veri kullanan makine öğrenmesi")
-
-    st.header("Güncelleme geçmişi")
-    st.write("Güncelleme geçmişi bulunmamaktadır")
-
+   
 elif page == "Proje":
     st.title("R2 Kare Dönem İçi Projesi")
 
