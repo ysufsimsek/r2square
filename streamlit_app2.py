@@ -311,16 +311,16 @@ elif page == "Grafik":
         plt.title("Yıllara Göre Maç Başına Atılan Gol Grafiği")
         st.pyplot(plt)
 
-st.header("Grafikler Hakkında Yorumlar")
-st.write("1-Takımımızın grafiklere bakarak 2014-2018 yılları arasında belirgin bir şekilde topla oynama yüzdesinin azaldığını görmekteyiz.")
-st.write("2-Takımızın pas isabet yüzdesinin 2016 yılına kadar düşüş gözlenirken 2016 yılından sonra "
-             "2020 yılına kadar kademeli bir artış "
-             "görmekteyiz aynı zamanda pas isabet yüzdesinin zirve yaptığı dönemde takımımızın diğer değerlere de pozitif bir etki"
-             "yaptığını görmekteyiz.")
-st.write("3-Takımızın ortalama şut ve başarılı orta ortalamasının arasında doğrudan bir ilişki gözlemleniyor."
-             "Bu iki değerde oldukça değişken değerler.")
-st.write("4-Birçok grafikte 2019-2020 istatistiklerinde değişikler gözüküyor muhtemelen bu sezonlarda "
-             "takım, teknik direktör, oyun anlayışı tarzı istatistikleri etkileyecek değişiklikler olmuş olabilir.")
-st.write("5-Grafiklerde genel olarak uzun vadeli performans trendleri incelendiğinde,"
-             " bazı alanlarda (örneğin, pas isabeti) iyileşme görülse de, "
-             "genel olarak takımın istikrarlı bir performans sergilemekte zorlandığı gözlemleniyor.")
+    st.header("Grafikler Hakkında Yorumlar")
+    st.write("1-Takımımızın grafiklere bakarak 2014-2018 yılları arasında belirgin bir şekilde topla oynama yüzdesinin azaldığını görmekteyiz.")
+    st.write("2-Takımızın pas isabet yüzdesinin 2016 yılına kadar düşüş gözlenirken 2016 yılından sonra "
+                 "2020 yılına kadar kademeli bir artış "
+                 "görmekteyiz aynı zamanda pas isabet yüzdesinin zirve yaptığı dönemde takımımızın diğer değerlere de pozitif bir etki"
+                 "yaptığını görmekteyiz.")
+    st.write("3-Takımızın ortalama şut ve başarılı orta ortalamasının arasında doğrudan bir ilişki gözlemleniyor."
+                 "Bu iki değerde oldukça değişken değerler.")
+    st.write("4-Birçok grafikte 2019-2020 istatistiklerinde değişikler gözüküyor muhtemelen bu sezonlarda "
+                 "takım, teknik direktör, oyun anlayışı tarzı istatistikleri etkileyecek değişiklikler olmuş olabilir.")
+    st.write("5-Grafiklerde genel olarak uzun vadeli performans trendleri incelendiğinde,"
+                 " bazı alanlarda (örneğin, pas isabeti) iyileşme görülse de, "
+                 "genel olarak takımın istikrarlı bir performans sergilemekte zorlandığı gözlemleniyor.")
