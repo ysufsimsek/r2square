@@ -167,7 +167,8 @@ elif page == "Grafik":
                                "Yıllara göre ortalama korner grafiği",
                                "Yıllara göre başarılı orta grafiği",
                                "Ortalama şut-Ortalam başarılı orta grafiği",
-                               "Yıllara Göre Maç Başı Puan Grafiği"])
+                               "Yıllara Göre Maç Başı Puan Grafiği",
+                               "Yıllara Göre Maç Başına Atılan Gol Grafiği"])
 
     # Grafiklerin oluşturulması
     ort_pasIsabeti = [ortalamalar[yil]["ort_pasIsabeti"] for yil in yillar_str]
