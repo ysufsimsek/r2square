@@ -113,7 +113,7 @@ for yil in yillar_str:
 print(ortalamalar)
 
 st.sidebar.title("Sayfa Seçimi")
-page = st.sidebar.selectbox("", ["Ana Sayfa","Hakkımızda", "Proje", "Grafik"])
+page = st.sidebar.selectbox("", ["Ana Sayfa","Hakkımızda", "Gol Tahmini", "Grafik"])
 
 if page == "Ana Sayfa":
     st.title("Hoş Geldiniz!")
@@ -190,7 +190,7 @@ elif page == "Hakkımızda":
             '<a href="https://github.com/efebatinseckin" target="_blank"><button>GitHub - Efe Batın SEÇKİN</button></a>',
             unsafe_allow_html=True)
    
-elif page == "Proje":
+elif page == "Gol Tahmini":
     st.title("R2 Kare Dönem İçi Projesi")
 
     # Model ve scaler dosyalarının yüklendiğinden emin olun
