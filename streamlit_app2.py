@@ -113,7 +113,7 @@ for yil in yillar_str:
 print(ortalamalar)
 
 st.sidebar.title("Sayfa Seçimi")
-page = st.sidebar.selectbox("", ["Ana Sayfa","Hakkımızda", "Gol Tahmini", "Grafik"])
+page = st.sidebar.selectbox("", ["Ana Sayfa","Hakkımızda", "Gol Tahmini", "Grafikler ve Analizler"])
 
 if page == "Ana Sayfa":
     st.title("Hoş Geldiniz!")
@@ -227,7 +227,7 @@ elif page == "Gol Tahmini":
         except Exception as e:
             st.error(f"Tahmin yapılırken bir hata oluştu: {e}")
 
-elif page == "Grafik":
+elif page == "Grafikler ve Analizler":
     yil_menusu = st.selectbox("Görüntülemek İstediğiniz Grafiği Seçiniz:",
                               ["Yıllara Göre Ortalama Topla Oynama Grafiği",
                                "Yıllara Göre Ortalama Şut Grafiği",
